@@ -1,31 +1,47 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { ReactiveFormsModule,Validators,FormBuilder} from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ReactiveFormsModule,FormsModule,FormGroup,FormControl,Validators } from '@angular/forms';
 
+
+import { CommonModule } from '@angular/common';
+
+
+import { Router, RouterLink } from '@angular/router';
+import { GlobalServiceService } from '../../shared/services/global-service.service';
+ 
+ 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,RouterLink],
+  imports: [FormsModule,ReactiveFormsModule,CommonModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  Form:any;
-  constructor(private fb:FormBuilder){}
-  
-  ngOnInit(){
-    this.Form=this.fb.group({
-      Name: ['',[Validators.required,Validators.pattern("^[a-zA-Z]{3,25}$")]],
-      Email:['',[Validators.required,Validators.pattern('/^[a-z0-9._%+-]+@[a-z0-9.-]+[a-z]{2,4}$/')]],
-      Pass:['',[Validators.required,Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$')]],
-      Confirmpass:['',[Validators.required,Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$')]],
-      term:['this',[Validators.requiredTrue]],
+  userData:any;
+  userDB:any;
+  constructor(private _globalSer:GlobalServiceService,private _router:Router){}
+    ngOnInit(){
+      this.userData=new FormGroup({
+         userId:new FormControl(" ",[Validators.required]),
+         userPass:new FormControl(" ",[Validators.required])
+      })
+    }
+   checkData(){
+    //console.log(this.userData.value);
+    this._globalSer.getRequest("users").subscribe((res)=>{
+      this.userDB = res;
+      const data = this.userDB.filter((val:any)=>{
+        return val.uid===this.userData.value.userId && val.upass===this.userData.value.userPass})
+      if(data.length>0){
+        this._globalSer.signIn(this.userData.value.userId);
+        this._router.navigate(['menu']);
+      }
+      else{
+        window.alert("Invalid Credential");
+      }
     })
-  }
-  submitData(){
-    console.log(this.Form.value);
-  }
-  }
+ 
+}
+}
 
 

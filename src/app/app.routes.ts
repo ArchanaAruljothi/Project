@@ -17,11 +17,14 @@ import { DrinksComponent } from './drinks/drinks.component';
 import { DessertsComponent } from './desserts/desserts.component';
 import { NoodlesComponent } from './noodles/noodles.component';
 import { FormComponent } from './form/form.component';
+import { FoodCardComponent } from './food-card/food-card.component';
+import { OrderFormComponent } from './order-form/order-form.component';
 
 export const routes: Routes = [
     {path:"home",component:HomeComponent,
     children:[
         {path:"order",component:OrderComponent},
+        {path:"foodcard",component:FoodCardComponent}
     ]
     },
     {path:"about",component:AboutComponent},
@@ -30,7 +33,9 @@ export const routes: Routes = [
     {path:"register",component:RegisterComponent},
     {path:"menu",component:MenuComponent,children:[
         {path:"pizza",component:PizzaComponent,children:[
-            {path:"cart",component:CartComponent},
+            {path:"cart",component:CartComponent,children:[
+                {path:"orderform",component:OrderFormComponent} 
+            ]},
             {path:"order",component:OrderComponent}
         ]},
         {path:"burger",component:BurgerComponent},
@@ -41,7 +46,10 @@ export const routes: Routes = [
         {path:"dessert",component:DessertsComponent},
         {path:"noodles",component:NoodlesComponent}
     ]},
-    {path:"cart",component:CartComponent},
+    {path:"cart",component:CartComponent,children:[
+        {path:"orderform",component:OrderFormComponent}
+    ]},
+    
     {path:"order",component:OrderComponent},
     {path:"reservation",component:FormComponent},
     {path:"pizza",component:PizzaComponent},
@@ -53,6 +61,9 @@ export const routes: Routes = [
         {path:"dessert",component:DessertsComponent},
         {path:"noodles",component:NoodlesComponent},
         {path:"cart",component:CartComponent},
-        {path:"noodles",component:NoodlesComponent}
+        
+        {path:"noodles",component:NoodlesComponent},
+        {path:"orderform",component:OrderFormComponent},
+        {path:"foodcard",component:FoodCardComponent}
 
 ];

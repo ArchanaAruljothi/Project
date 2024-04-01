@@ -1,0 +1,56 @@
+
+.food-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(https://th.bing.com/th?id=OIP.2T_I2ANY1k8q0hvmHW6nZwAAAA&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2);
+   }
+   .food-card {
+    width: 300px;
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+   }
+   .food-card:hover {
+    transform: translateY(-5px);
+   }
+   .food-card img {
+   
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 100px;
+    width: 150px;
+   }
+   .food-card h2 {
+    margin: 20px 0 10px;
+    font-size: 24px;
+    color: #d6b7b7;
+   }
+   .food-card p {
+    margin: 0 0 20px;
+    padding: 0px 20px;
+    font-size: 14px;
+    color: #956767;
+   }
+   .combo {
+    background-color: #090908; /* Combo background color */
+   }
+   .combo button {
+    font-size: 9px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff8c00; /* Button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+   }
+   .combo button:hover {
+    background-color: #0056b3; /* Button color on hover */
+   }
+

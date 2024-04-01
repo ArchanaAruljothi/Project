@@ -1,0 +1,40 @@
+{
+   "users": [
+   {
+     "id": "1",
+     "uid": "admin@gmail.com",
+     "upass": "admin@123"
+     
+   },
+   {
+     "id": "2",
+     "uid": "abc@gmail.com",
+     "upass": "abc@123"
+     
+   },
+   {
+     "id": "3",
+     "uid": "def@gmail.com",
+     "upass": "defn@123"
+     
+   },
+   {
+     "id": "4",
+     "uid": "ghi@gmail.com",
+     "upass": "ghi@123"
+     
+   },
+   {
+     "id": "5",
+     "uid": "jkl@gmail.com",
+     "upass": "jkl@123"
+     
+   },
+   {
+      "id": "5",
+      "uid": "jkl@gmail.com",
+      "upass": "jkl@123"
+    
+    }
+ ]
+}

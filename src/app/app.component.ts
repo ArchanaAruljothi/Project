@@ -11,12 +11,13 @@ import { NoodlesComponent } from './noodles/noodles.component';
 import { FriesComponent } from './fries/fries.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderComponent } from './order/order.component';
+import { OrderFormComponent } from './order-form/order-form.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavComponent,PizzaComponent,BurgerComponent,PastaComponent,TacosComponent,DrinksComponent,DessertsComponent,NoodlesComponent,FriesComponent,CartComponent,OrderComponent],
+  imports: [RouterOutlet,NavComponent,PizzaComponent,BurgerComponent,PastaComponent,TacosComponent,DrinksComponent,DessertsComponent,NoodlesComponent,FriesComponent,CartComponent,OrderComponent,OrderFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,0 +1,13 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This will center the form vertically */
+  }
+ 
+  .form-container form {
+    width: 400px; /* Adjust the width of the form as needed */
+  }
+  .form-container button {
+    margin-top: 10px;
+  }
